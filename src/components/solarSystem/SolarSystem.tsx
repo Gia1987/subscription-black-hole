@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './SolarSystem.css';
+import RocketImage from '../../assets/images/rocket-man.png';
 
 export const Animation = () => {
   // A Fibonacci-style spiral uses the formula: r = a * e^(b * angle)
@@ -27,10 +28,23 @@ export const Animation = () => {
           ease: "easeIn" // Gets faster as it gets closer
         }}
       >
-        <div className="character">
-          👨‍🚀
-          <span className="cost-tag">-$14.99</span>
+       <div className="rocket-container">
+        {/* YOUR CUSTOM IMAGE */}
+        <img 
+          src={RocketImage} 
+          alt="Man on Rocket" 
+          className="custom-rocket-icon"
+        />
         </div>
+
+        {/* SUBSCRIPTION DATA */}
+      {  /*
+        <div className="price-tag">
+          <span className="label">{label}</span>
+          <span className="cost">-${cost}</span>
+        </div>
+      </div>
+      */}
       </motion.div>
     </div>
   );
