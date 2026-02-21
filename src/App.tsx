@@ -9,7 +9,6 @@ function App() {
       <p className="read-the-docs">
         Subscription Black Hole
       </p>
-      <Animation/>
     </div>
     </>
   )
