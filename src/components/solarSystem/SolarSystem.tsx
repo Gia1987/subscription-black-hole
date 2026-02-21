@@ -1,35 +1,24 @@
 
-import React, { useState } from 'react';
-import { type Transition, motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, type Transition } from 'framer-motion';
 import './SolarSystem.css';
-import RocketImage from '../../assets/images/rocket-man.png';
 
 
-const Animation = () => {
+const SolarSystem = () => {
   const [isStuck, setIsStuck] = useState(false);
 
 
-const orbitTransition = (duration: number): Transition => ({
+ const orbitTransition = (duration: number): Transition => ({
   duration: isStuck ? duration * 10 : duration,
   repeat: Infinity,
   ease: "linear",
 });
   
+  
   return (
-    <div className="space-container">
-      {/* THE BLACK HOLE */}
-      <div className="black-hole">
-        <div className="event-horizon"></div>
-      </div>
-
-      {/* MERCURY ORBIT */}
-      <motion.div
-        className="orbit mercury-orbit"
-        animate={{ rotate: 360 }}
-        transition={orbitTransition(4)}
-      >
-        <div className="planet mercury"></div>
-      </motion.div>
+    <div className="space">
+      {/* THE SUN */}
+      <div className="sun" onClick={() => setIsStuck(!isStuck)}></div>
 
       {/* EARTH ORBIT */}
       <motion.div 
@@ -37,26 +26,33 @@ const orbitTransition = (duration: number): Transition => ({
         animate={{ rotate: 360 }}
         transition={orbitTransition(10)}
       >
-       <div className="rocket-container">
-        {/* YOUR CUSTOM IMAGE */}
-        <img 
-          src={RocketImage} 
-          alt="Man on Rocket" 
-          className="custom-rocket-icon"
-        />
+        <div className="planet earth">
+          {/* MOON (Nested inside Earth) */}
+          <motion.div 
+            className="orbit moon-orbit"
+            animate={{ rotate: 360 }}
+            transition={orbitTransition(3)}
+          >
+            <div className="planet moon"></div>
+          </motion.div>
         </div>
-
-        {/* SUBSCRIPTION DATA */}
-      {  /*
-        <div className="price-tag">
-          <span className="label">{label}</span>
-          <span className="cost">-${cost}</span>
-        </div>
-      </div>
-      */}
       </motion.div>
+
+      {/* MARS ORBIT */}
+      <motion.div 
+        className="orbit mars-orbit"
+        animate={{ rotate: 360 }}
+        transition={orbitTransition(10)}
+      >
+        <div className="planet mars"></div>
+      </motion.div>
+
+      
     </div>
   );
 };
 
-export default Animation
+
+export default SolarSystem
+
+

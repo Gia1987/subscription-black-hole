@@ -3,7 +3,7 @@ import SummaryCards from './SummaryCards';
 
 import Charts from './Charts';
 import SubscriptionList from './SubscriptionList';
-import { Animation } from './solarSystem/SolarSystem';
+import Animation from './solarSystem/SolarSystem';
 import type { Subscription } from '../types';
 import './Dashboard.css';
 
