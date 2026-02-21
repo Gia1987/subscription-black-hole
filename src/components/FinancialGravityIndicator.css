@@ -1,0 +1,211 @@
+.financial-gravity-indicator {
+  margin: 2rem 0;
+}
+
+.indicator-card {
+  background: linear-gradient(135deg, rgba(26, 10, 62, 0.8), rgba(10, 14, 39, 0.9));
+  border: 1px solid rgba(255, 107, 157, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Income Section */
+.income-section {
+  margin-bottom: 2rem;
+}
+
+.income-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.income-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ff6b9d;
+  pointer-events: none;
+}
+
+.income-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 107, 157, 0.2);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.income-input:focus {
+  outline: none;
+  border-color: #ff6b9d;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 107, 157, 0.2);
+}
+
+.income-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 107, 157, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b9d, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Health Status */
+.health-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.health-emoji {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.health-info {
+  flex: 1;
+}
+
+.health-level {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.health-message {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+/* Progress Bar */
+.progress-section {
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar-container {
+  height: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255, 107, 157, 0.1);
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(255, 107, 157, 0.4);
+}
+
+.progress-markers {
+  position: relative;
+  height: 1.5rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.marker {
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+  top: 0;
+}
+
+/* Warning Text */
+.warning-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .indicator-card {
+    padding: 1.5rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-value {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .indicator-card {
+    padding: 1rem;
+  }
+
+  .income-input {
+    font-size: 1rem;
+    padding: 0.75rem 0.75rem 0.75rem 2rem;
+  }
+
+  .metric-value {
+    font-size: 1rem;
+  }
+
+  .health-status {
+    flex-direction: column;
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid;
+  }
+}

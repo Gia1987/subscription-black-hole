@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import SummaryCards from './SummaryCards';
-
+import FinancialGravityIndicator from './FinancialGravityIndicator';
 import Charts from './Charts';
 import SubscriptionList from './SubscriptionList';
-import Animation from './solarSystem/SolarSystem';
+import SolarSystem from './solarSystem/SolarSystem';
+import AsteroidBelt from './solarSystem/AsteroidBelt/AsteroidBelt';
+import { BlackHole } from './solarSystem/BlackHole/BlackHole';
 import type { Subscription } from '../types';
+import { calculateFinancialMetrics } from '../utils/financialUtils';
 import './Dashboard.css';
 
 interface DashboardProps {
@@ -12,6 +15,33 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ subscriptions }) => {
+  const [monthlyIncome, setMonthlyIncome] = useState(3000);
+
+  // Calculate metrics
+  const totalMonthlyCost = useMemo(
+    () => subscriptions.reduce((sum, s) => sum + s.monthlyCost, 0),
+    [subscriptions]
+  );
+
+  const metrics = useMemo(
+    () => calculateFinancialMetrics(totalMonthlyCost, monthlyIncome),
+    [totalMonthlyCost, monthlyIncome]
+  );
+
+  // Render appropriate animation based on severity
+  const renderAnimation = () => {
+    switch (metrics.severity) {
+      case 1:
+        return <SolarSystem />;
+      case 2:
+        return <AsteroidBelt />;
+      case 3:
+        return <BlackHole />;
+      default:
+        return <SolarSystem />;
+    }
+  };
+
   return (
     <div className="dashboard">
       {/* Header */}
@@ -29,11 +59,24 @@ const Dashboard: React.FC<DashboardProps> = ({ subscriptions }) => {
         {/* Summary cards */}
         <SummaryCards subscriptions={subscriptions} />
 
-        {/* Black hole visualization */}
+        {/* Financial Gravity Indicator */}
+        <FinancialGravityIndicator
+          monthlyIncome={monthlyIncome}
+          totalMonthlyCost={totalMonthlyCost}
+          percentage={metrics.percentage}
+          severity={metrics.severity}
+          level={metrics.level}
+          color={metrics.color}
+          message={metrics.message}
+          emoji={metrics.emoji}
+          onIncomeChange={setMonthlyIncome}
+        />
+
+        {/* Dynamic Visualization based on Severity */}
         <section className="visualization-section">
           <h2 className="section-title">Financial Gravity Well</h2>
           <div className="visualization-wrapper">
-            <Animation/>
+            {renderAnimation()}
           </div>
         </section>
 
