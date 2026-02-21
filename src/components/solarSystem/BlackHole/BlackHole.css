@@ -39,23 +39,6 @@
 }
 
 .rocket-container {
-.mercury-orbit { width: 150px; height: 150px; }
-.earth-orbit { width: 350px; height: 350px; }
-.mars-orbit  { width: 550px; height: 550px; }
-.moon-orbit  { width: 70px;  height: 70px; top: -35px; }
-
-.planet {
-  position: absolute;
-  top: -10px;
-  border-radius: 50%;
-}
-
-.mercury { width: 12px; height: 12px; background: #9ca3af; box-shadow: 0 0 10px #9ca3af; }
-.earth { width: 24px; height: 24px; background: #3b82f6; box-shadow: 0 0 15px #3b82f6; }
-.mars  { width: 18px; height: 18px; background: #ef4444; box-shadow: 0 0 15px #ef4444; }
-.moon  { width: 8px;  height: 8px;  background: #94a3b8; }
-
-.ui-overlay {
   position: absolute;
   top: 0;
   display: flex;

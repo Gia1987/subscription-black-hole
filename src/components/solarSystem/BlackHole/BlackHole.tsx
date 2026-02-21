@@ -1,19 +1,12 @@
 
-import React, { useState } from 'react';
-import { type Transition, motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './SolarSystem.css';
 import RocketImage from '../../assets/images/rocket-man.png';
 
-
-const Animation = () => {
-  const [isStuck, setIsStuck] = useState(false);
-
-
-const orbitTransition = (duration: number): Transition => ({
-  duration: isStuck ? duration * 10 : duration,
-  repeat: Infinity,
-  ease: "linear",
-});
+export const BlackHole = () => {
+  // A Fibonacci-style spiral uses the formula: r = a * e^(b * angle)
+  // We'll simulate this by animating 'scale' and 'rotate' simultaneously
   
   return (
     <div className="space-container">
@@ -22,20 +15,18 @@ const orbitTransition = (duration: number): Transition => ({
         <div className="event-horizon"></div>
       </div>
 
-      {/* MERCURY ORBIT */}
+      {/* THE CHARACTER / TRANSACTION */}
       <motion.div
-        className="orbit mercury-orbit"
-        animate={{ rotate: 360 }}
-        transition={orbitTransition(4)}
-      >
-        <div className="planet mercury"></div>
-      </motion.div>
-
-      {/* EARTH ORBIT */}
-      <motion.div 
-        className="orbit earth-orbit"
-        animate={{ rotate: 360 }}
-        transition={orbitTransition(10)}
+        className="character-wrapper"
+        animate={{ 
+          rotate: [0, 1440], // Multiple full rotations
+          scale: [1, 0],     // Shrinks as it hits the center
+        }}
+        transition={{ 
+          duration: 10, 
+          repeat: Infinity, 
+          ease: "easeIn" // Gets faster as it gets closer
+        }}
       >
        <div className="rocket-container">
         {/* YOUR CUSTOM IMAGE */}
@@ -58,5 +49,3 @@ const orbitTransition = (duration: number): Transition => ({
     </div>
   );
 };
-
-export default Animation
