@@ -1,0 +1,48 @@
+    .launch-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to top, #001f3f, #000000); 
+    overflow: hidden;
+    }
+
+    .earth-curvature {
+    position: absolute;
+    bottom: -50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200vw;       
+    height: 200px;
+    background: radial-gradient(
+        circle at center bottom,
+        #1e90ff 0%,
+        #00509e 100%
+    );
+    border-radius: 50%;
+    }
+
+    .rocket {
+    position: absolute;
+    bottom: 100px; /* start above Earth */
+    left: 50%;
+    width: 80px;
+    transform: translateX(-50%);
+    z-index: 10;
+    filter: drop-shadow(0 0 15px #fff); /* glow effect */
+    }
+
+    .launch-button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #fff;            
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.6);
+    transition: all 6s ease;
+    }

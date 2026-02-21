@@ -12,6 +12,7 @@ import './Dashboard.css';
 
 interface DashboardProps {
   subscriptions: Subscription[];
+  level?: 'Low' | 'Improve' | 'Danger' | 'Critical';
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ subscriptions }) => {
